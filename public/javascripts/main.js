@@ -7,6 +7,7 @@ socket.on('connect', function () {
 
 // Retrieve all stats
 socket.on('all', function (data) {
+    console.log(data);
     var sum = 0, i = 0;
 
     for(i; i < data.timers.revue.times.parsing.length; i++){
@@ -14,6 +15,6 @@ socket.on('all', function (data) {
     }
 
     if (sum) {
-        $('.parsing h1').text(Math.round(sum / data.timers.revue.times.parsing.length) + 'ms').fadeIn(0).fadeOut(10000);
+        $('.parsing h1').text(Math.round(sum / data.timers.revue.times.parsing.length) + 'ms').stop().fadeIn(0).fadeOut(10000);
     }
 });
