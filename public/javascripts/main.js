@@ -8,7 +8,6 @@ socket.on('connect', function () {
 // Retrieve all stats
 socket.on('all', function (data) {
     var sum = 0, i = 0;
-    console.log(data.timers.revue.times.parsing);
 
     for(i; i < data.timers.revue.times.parsing.length; i++){
         sum += data.timers.revue.times.parsing[i];
