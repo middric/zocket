@@ -7,7 +7,7 @@ socket.on('connect', function () {
 
 // Retrieve all stats
 socket.on('all', function (data) {
-    var sum = 0;
+    var sum = 0, i = 0;
 
     for(i; i < data.timers.revue.times.parsing.length; i++){
         sum += parseInt(data.timers.revue.times.parsing[i], 10);

@@ -7,6 +7,5 @@ socket.on('connect', function () {
 
 // Retrieve all stats
 socket.on('all', function (data) {
-    var i = 0;
     $('.log').append('<p>' + JSON.stringify(data) + '</p>');
 });
