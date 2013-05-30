@@ -1,6 +1,6 @@
 exports.index = function(req, res){
 
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Zttz' });
 };
 
 exports.log = function(req, res){
