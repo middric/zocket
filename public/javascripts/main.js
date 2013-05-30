@@ -15,7 +15,7 @@ socket.on('all', function (data) {
             sum += data.timers.bbc.tviplayer.iplayer.index.render_time[i];
         }
         if (sum) {
-            $('.parsing h1').text(Math.round(sum / data.timers.bbc.tviplayer.iplayer.index.render_time.length) + 'ms').stop().fadeIn(0).fadeTo(10000, 0.25);
+            $('.parsing h1').text(Math.round(sum / data.timers.bbc.tviplayer.iplayer.index.render_time.length) + 'ms').stop().fadeTo(1, 1).fadeTo(10000, 0.25);
         }
     }
 
@@ -25,7 +25,7 @@ socket.on('all', function (data) {
             sum += data.timers.bbc.tviplayer.iplayer.index.page_assembly_time[i];
         }
         if (sum) {
-            $('.generation h1').text(Math.round(sum / data.timers.bbc.tviplayer.iplayer.index.page_assembly_time.length) + 'ms').stop().fadeIn(0).fadeTo(10000, 0.25);
+            $('.generation h1').text(Math.round(sum / data.timers.bbc.tviplayer.iplayer.index.page_assembly_time.length) + 'ms').stop().fadeTo(1, 1).fadeTo(10000, 0.25);
         }
     }
 
@@ -33,7 +33,7 @@ socket.on('all', function (data) {
         var uniques = _.keys(data.sets.bbc.tviplayer.iplayer.index.unique_browsers.store).length;
 
         if (uniques) {
-            $('.uniques h1').text(uniques).stop().fadeIn(0).fadeTo(10000, 0.25);
+            $('.uniques h1').text(uniques).stop().fadeTo(1, 1).fadeTo(10000, 0.25);
         }
     }
 });
