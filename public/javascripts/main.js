@@ -30,10 +30,10 @@ socket.on('all', function (data) {
     }
 
     if (isset(data, 'sets.bbc.tviplayer.iplayer.index.unique_browsers.store')) {
-        var uniques = data.sets.bbc.tviplayer.iplayer.index.unique_browsers.store.length;
+        var uniques = _.keys(data.sets.bbc.tviplayer.iplayer.index.unique_browsers.store).length;
 
         if (uniques) {
-            $('.uniques h1').text(uniques).stop().fadeIn(0).fadeOut(10000);
+            $('.uniques h1').text(uniques).stop().fadeIn(0).fadeTo(10000, 0.25);
         }
     }
 });
