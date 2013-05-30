@@ -14,6 +14,6 @@ socket.on('all', function (data) {
     }
 
     if (sum) {
-        $('.parsing h1').text(Math.round(sum / data.timers.revue.times.parsing.length) + 'ms');
+        $('.parsing h1').text(Math.round(sum / data.timers.revue.times.parsing.length) + 'ms').fadeIn(0).fadeOut(15000);
     }
 });
