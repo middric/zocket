@@ -1,0 +1,16 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js")
+    script(src="/flot/jquery.flot.js")
+    script(src="http://198.199.67.216:8000/socket.io/socket.io.js")
+    script(data-main="/javascripts/main",src="javascripts/require.js")
+    style
+      .log { background:#222; color: #fff; font-family: monospace; border: 3px inset #ccc; padding: 20px; height: 100%; }
+  body
+    div.parsing
+      | Current parse time:
+      span 0ms
+    div.log
