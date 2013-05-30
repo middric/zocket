@@ -10,17 +10,41 @@ socket.on('all', function (data) {
     console.log(data);
     var sum = 0, i = 0;
 
-    for(i; i < data.timers.bbc.tviplayer.iplayer.index.render_time.length; i++){
-        sum += data.timers.bbc.tviplayer.iplayer.index.render_time[i];
+    if (isset(data, 'timers.bbc.tviplayer.iplayer.index.render_time')) {
+        for(i; i < data.timers.bbc.tviplayer.iplayer.index.render_time.length; i++){
+            sum += data.timers.bbc.tviplayer.iplayer.index.render_time[i];
+        }
+        if (sum) {
+            $('.parsing h1').text(Math.round(sum / data.timers.bbc.tviplayer.iplayer.index.render_time.length) + 'ms').stop().fadeIn(0).fadeTo(10000, 0.25);
+        }
     }
 
-    if (sum) {
-        $('.parsing h1').text(Math.round(sum / data.timers.bbc.tviplayer.iplayer.index.render_time.length) + 'ms').stop().fadeIn(0).fadeOut(10000);
+    if (isset(data, 'timers.bbc.tviplayer.iplayer.index.page_assembly_time')) {
+        sum = 0;
+        for(i; i < data.timers.bbc.tviplayer.iplayer.index.page_assembly_time.length; i++){
+            sum += data.timers.bbc.tviplayer.iplayer.index.page_assembly_time[i];
+        }
+        if (sum) {
+            $('.generation h1').text(Math.round(sum / data.timers.bbc.tviplayer.iplayer.index.page_assembly_time.length) + 'ms').stop().fadeIn(0).fadeTo(10000, 0.25);
+        }
     }
 
-    var uniques = data.sets.bbc.tviplayer.iplayer.index.unique_browsers.store.length;
+    if (isset(data, 'sets.bbc.tviplayer.iplayer.index.unique_browsers.store')) {
+        var uniques = data.sets.bbc.tviplayer.iplayer.index.unique_browsers.store.length;
 
-    if (uniques) {
-        $('.uniques h1').text(uniques).stop().fadeIn(0).fadeOut(10000);
+        if (uniques) {
+            $('.uniques h1').text(uniques).stop().fadeIn(0).fadeOut(10000);
+        }
     }
 });
+
+function isset(obj, propStr) {
+    var parts = propStr.split(".");
+    var cur = obj;
+    for (var i=0; i<parts.length; i++) {
+        if (!cur[parts[i]])
+            return false;
+        cur = cur[parts[i]];
+    }
+    return true;
+}
