@@ -8,12 +8,13 @@ socket.on('connect', function () {
 // Retrieve all stats
 socket.on('all', function (data) {
     var sum = 0, i = 0;
+    console.log(data.timers.revue.times.parsing);
 
     for(i; i < data.timers.revue.times.parsing.length; i++){
-        sum += parseInt(data.timers.revue.times.parsing[i], 10);
+        sum += data.timers.revue.times.parsing[i];
     }
 
     if (sum) {
-        $('.parsing span').text((sum / data.timers.revue.times.parsing.length) + 'ms');
+        $('.parsing h1').text(Math.round(sum / data.timers.revue.times.parsing.length) + 'ms');
     }
 });
