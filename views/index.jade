@@ -24,7 +24,7 @@ html
           div.span4
             div.uniques
               div.graph
-                img(src="http://198.199.67.216:8080/render/?target=stats.timers.bbc.tviplayer.iplayer.index.page_assembly_time.count&format=svg&from=16:20_20130530&until=16:50_20130530&graphOnly=1&lineMode=connected&lineWidth=2&width=300&height=50&template=zockets")
+                img(width=300, height=50)
               h1 0
               p Total PHP hits
           div.span4
@@ -44,13 +44,13 @@ html
           div.span4
             div.uniques
               div.graph
-                img(src="http://198.199.67.216:8080/render/?target=stats.timers.bbc.tviplayer.iplayer.index.page_assembly_time.count&format=svg&from=16:20_20130530&until=16:50_20130530&graphOnly=1&lineMode=connected&lineWidth=2&width=300&height=50&template=zockets")
+                img(width=300, height=50)
               h1 0
               p Average network latency
           div.span4
             div.uniques
               div.graph
-                img(src="http://198.199.67.216:8080/render/?target=stats.timers.bbc.tviplayer.iplayer.index.page_assembly_time.count&format=svg&from=16:20_20130530&until=16:50_20130530&graphOnly=1&lineMode=connected&lineWidth=2&width=300&height=50&template=zockets")
+                img(width=300, height=50)
               h1 0
               p Average request-response completion
           div.span4
@@ -64,9 +64,9 @@ html
             h1 Browser performance
         div.row
           div.span6
-            div.parsing
+            div.parsing(data-target='timers.bbc.tviplayer.iplayer.index.render_time', data-function='median', data-unit='ms')
               div.graph
-                img(src="http://198.199.67.216:8080/render/?target=stats.timers.bbc.tviplayer.iplayer.index.render_time.mean&format=svg&from=16:20_20130530&until=16:50_20130530&graphOnly=1&lineMode=connected&lineWidth=2&width=300&height=50&template=zockets")
+                img(width=300, height=50)
               h1 0ms
               p Average page render time
           div.span6
@@ -79,9 +79,9 @@ html
             h1 PHP performance
         div.row
           div.span4
-            div.generation
+            div.generation(data-target='timers.bbc.tviplayer.iplayer.index.page_assembly_time', data-function='count', data-unit='ms')
               div.graph
-                img(src="http://198.199.67.216:8080/render/?target=stats.timers.bbc.tviplayer.iplayer.index.page_assembly_time.mean&format=svg&from=16:20_20130530&until=16:50_20130530&graphOnly=1&lineMode=connected&lineWidth=2&width=300&height=50&template=zockets")
+                img(width=300, height=50)
               h1 0ms
               p Average page generation time
           div.span4
