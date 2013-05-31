@@ -3,10 +3,10 @@
  * Module dependencies.
  */
 
-var express = require('express')
-  , routes = require('./routes')
-  , http = require('http')
-  , path = require('path');
+var express = require('express'),
+	routes = require('./routes'),
+	http = require('http'),
+	path = require('path');
 
 var app = express();
 // all environments
@@ -30,15 +30,4 @@ app.get('/log', routes.log);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
-});
-
-
-var socket = require('socket.io-client').connect('http://localhost:8000');
-socket.on('connect', function () {
-  socket.emit('subscribe', 'all');
-});
-
-// Retrieve all stats
-socket.on('all', function (data) {
-  console.log('ALL:' + data);
 });

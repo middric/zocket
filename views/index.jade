@@ -9,25 +9,105 @@ html
     script(src="http://198.199.67.216:8000/socket.io/socket.io.js")
     script(data-main="/javascripts/main",src="javascripts/require.js")
     style
-      body { padding: 20px }
+      body { background: #1c2022; padding: 20px; color: #ffffff }
+      .row { background: #16191B; padding-top: 10px; margin-bottom: 5px; }
+      .header { background: #000; margin-top: 20px; margin-bottom: 5px; padding: 0 }
+      .header h1 { font-size: 18px; line-height: 1; }
       .log { background:#222; color: #fff; font-family: monospace; border: 3px inset #ccc; padding: 20px; height: 100%; }
   body
     div.container
+
+        div.row.header
+          div.span12
+            h1 Visitors
         div.row
-            h3 iPlayer homepage
-        hr
+          div.span4
+            div.uniques
+              div.graph
+                img(src="http://198.199.67.216:8080/render/?target=stats.timers.bbc.tviplayer.iplayer.index.page_assembly_time.count&format=svg&from=16:20_20130530&until=16:50_20130530&graphOnly=1&lineMode=connected&lineWidth=2&width=300&height=50&template=zockets")
+              h1 0
+              p Total PHP hits
+          div.span4
+            div.uniques
+              div.graph
+              h1 0
+              p Total page loads
+          div.span4
+            div.uniques
+              h1 0
+              p Total unique visitors
+
+        div.row.header
+          div.span12
+            h1 Network performance
+        div.row
+          div.span4
+            div.uniques
+              div.graph
+                img(src="http://198.199.67.216:8080/render/?target=stats.timers.bbc.tviplayer.iplayer.index.page_assembly_time.count&format=svg&from=16:20_20130530&until=16:50_20130530&graphOnly=1&lineMode=connected&lineWidth=2&width=300&height=50&template=zockets")
+              h1 0
+              p Average network latency
+          div.span4
+            div.uniques
+              div.graph
+                img(src="http://198.199.67.216:8080/render/?target=stats.timers.bbc.tviplayer.iplayer.index.page_assembly_time.count&format=svg&from=16:20_20130530&until=16:50_20130530&graphOnly=1&lineMode=connected&lineWidth=2&width=300&height=50&template=zockets")
+              h1 0
+              p Average request-response completion
+          div.span4
+            div.total
+              h1 0ms
+              p Average end-to-end time
+              div.graph
+
+        div.row.header
+          div.span12
+            h1 Browser performance
         div.row
           div.span6
             div.parsing
-              p Current render time:
+              div.graph
+                img(src="http://198.199.67.216:8080/render/?target=stats.timers.bbc.tviplayer.iplayer.index.render_time.mean&format=svg&from=16:20_20130530&until=16:50_20130530&graphOnly=1&lineMode=connected&lineWidth=2&width=300&height=50&template=zockets")
               h1 0ms
+              p Average page render time
           div.span6
-            div.generation
-              p Current page generation time:
-              h1 0ms
-        hr
-        div.row
-          div.span12
             div.uniques
-              p Unique visitors:
               h1 0
+              p Average DOM processing time
+
+        div.row.header
+          div.span12
+            h1 PHP performance
+        div.row
+          div.span4
+            div.generation
+              div.graph
+                img(src="http://198.199.67.216:8080/render/?target=stats.timers.bbc.tviplayer.iplayer.index.page_assembly_time.mean&format=svg&from=16:20_20130530&until=16:50_20130530&graphOnly=1&lineMode=connected&lineWidth=2&width=300&height=50&template=zockets")
+              h1 0ms
+              p Average page generation time
+          div.span4
+            div.component-average
+              h1 0ms
+              p Average page component time
+              div.graph
+          div.span4
+            div.component-slowest
+              h1 0ms
+              p Slowest page component time
+              div.graph
+
+        div.row.header
+          div.span12
+            h1 Errors and warnings
+        div.row
+          div.span4
+            div.warnings
+              h1 0
+              p Number of warnings
+          div.span4
+            div.errors
+              h1 0
+              p Number of errors
+          div.span4
+            div.not-found
+              h1 0
+              p Number of 404's

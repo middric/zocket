@@ -2,6 +2,7 @@ var socket = io.connect('http://198.199.67.216:8000');
 
 socket.on('connect', function () {
   console.info('connected to statsd');
+  // subscribe per page
   socket.emit('subscribe', 'all');
 });
 
