@@ -45,13 +45,13 @@ html
             h1 Network performance
         div.row
           div.span6
-            div.uniques(data-target='timers.bbc.tviplayer.iplayer.index.network_latency', data-function='median', data-unit='ms')
+            div.uniques(data-target='timers.bbc.tviplayer.iplayer.index.network_latency', data-function='mean', data-unit='ms')
               div.graph
                 img(width=460, height=50)
               h1 0
               p Average network latency
           div.span6
-            div.total(data-target='timers.bbc.tviplayer.iplayer.index.request_response_render', data-function='median', data-unit='ms')
+            div.total(data-target='timers.bbc.tviplayer.iplayer.index.request_response_render', data-function='mean', data-unit='ms')
               div.graph
                 img(width=460, height=50)
               h1 0ms
@@ -62,13 +62,13 @@ html
             h1 Browser performance
         div.row
           div.span6
-            div.parsing(data-target='timers.bbc.tviplayer.iplayer.index.render_time', data-function='median', data-unit='ms')
+            div.parsing(data-target='timers.bbc.tviplayer.iplayer.index.render_time', data-function='mean', data-unit='ms')
               div.graph
                 img(width=460, height=50)
               h1 0ms
               p Average page render time
           div.span6
-            div.uniques(data-target='timers.bbc.tviplayer.iplayer.index.dom_processing_time', data-function='median', data-unit='ms')
+            div.uniques(data-target='timers.bbc.tviplayer.iplayer.index.dom_processing_time', data-function='mean', data-unit='ms')
               div.graph
                 img(width=460, height=50)
               h1 0
@@ -79,7 +79,7 @@ html
             h1 PHP performance
         div.row
           div.span4
-            div.generation(data-target='timers.bbc.tviplayer.iplayer.index.page_assembly_time', data-function='median', data-unit='ms')
+            div.generation(data-target='timers.bbc.tviplayer.iplayer.index.page_assembly_time', data-function='mean', data-unit='ms')
               div.graph
                 img(width=300, height=50)
               h1 0ms
