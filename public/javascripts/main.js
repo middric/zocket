@@ -17,7 +17,6 @@ socket.on('all', function (data) {
             unit = $(this).data('unit') || '',
             cur = false,
             i = 0, sum = 0;
-
         if (cur = isset(data, target)) {
             if (cur.length) {
                 for(i; i < cur.length; i++){
@@ -27,8 +26,12 @@ socket.on('all', function (data) {
             } else {
                 h.text("0" + unit);
             }
+
+            if (cur.store) {
+                h.text(Object.keys(cur.store).length + unit);
+            }
         }
-        img.removeAttr('src').attr('src', 'http://198.199.67.216:8080/render/?target=stats.' + target + '.' + func + '&from=-10minutes&graphOnly=1&lineMode=connected&lineWidth=2&width=300&height=50&template=zockets');
+        img.removeAttr('src').attr('src', 'http://198.199.67.216:8080/render/?target=stats.' + target + '.' + func + '&from=-10minutes&graphOnly=1&lineMode=connected&lineWidth=2&width=' + img.width() + '&height=50&template=zockets');
     });
 });
 

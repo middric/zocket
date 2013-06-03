@@ -22,18 +22,21 @@ html
             h1 Visitors
         div.row
           div.span4
-            div.uniques
+            div.uniques(data-target='timers.bbc.tviplayer.iplayer.index.page_assembly_time', data-function='count', data-unit='')
               div.graph
                 img(width=300, height=50)
               h1 0
               p Total PHP hits
           div.span4
-            div.uniques
+            div.uniques(data-target='timers.bbc.tviplayer.iplayer.index.request_response_render', data-function='count', data-unit='')
               div.graph
+                img(width=300, height=50)
               h1 0
               p Total page loads
           div.span4
-            div.uniques
+            div.uniques(data-target='sets.bbc.tviplayer.iplayer.index.unique_browsers', data-function='count', data-unit='')
+              div.graph
+                img(width=300, height=50)
               h1 0
               p Total unique visitors
 
@@ -41,23 +44,18 @@ html
           div.span12
             h1 Network performance
         div.row
-          div.span4
-            div.uniques
+          div.span6
+            div.uniques(data-target='timers.bbc.tviplayer.iplayer.index.network_latency', data-function='median', data-unit='ms')
               div.graph
-                img(width=300, height=50)
+                img(width=460, height=50)
               h1 0
               p Average network latency
-          div.span4
-            div.uniques
+          div.span6
+            div.total(data-target='timers.bbc.tviplayer.iplayer.index.request_response_render', data-function='median', data-unit='ms')
               div.graph
-                img(width=300, height=50)
-              h1 0
-              p Average request-response completion
-          div.span4
-            div.total
+                img(width=460, height=50)
               h1 0ms
               p Average end-to-end time
-              div.graph
 
         div.row.header
           div.span12
@@ -66,11 +64,13 @@ html
           div.span6
             div.parsing(data-target='timers.bbc.tviplayer.iplayer.index.render_time', data-function='median', data-unit='ms')
               div.graph
-                img(width=300, height=50)
+                img(width=460, height=50)
               h1 0ms
               p Average page render time
           div.span6
-            div.uniques
+            div.uniques(data-target='timers.bbc.tviplayer.iplayer.index.dom_processing_time', data-function='median', data-unit='ms')
+              div.graph
+                img(width=460, height=50)
               h1 0
               p Average DOM processing time
 
@@ -79,7 +79,7 @@ html
             h1 PHP performance
         div.row
           div.span4
-            div.generation(data-target='timers.bbc.tviplayer.iplayer.index.page_assembly_time', data-function='count', data-unit='ms')
+            div.generation(data-target='timers.bbc.tviplayer.iplayer.index.page_assembly_time', data-function='median', data-unit='ms')
               div.graph
                 img(width=300, height=50)
               h1 0ms
