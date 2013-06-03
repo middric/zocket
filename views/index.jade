@@ -14,6 +14,8 @@ html
       .header { background: #000; margin-top: 20px; margin-bottom: 5px; padding: 0 }
       .header h1 { font-size: 18px; line-height: 1; }
       .log { background:#222; color: #fff; font-family: monospace; border: 3px inset #ccc; padding: 20px; height: 100%; }
+      .warning { color: #f00; }
+      p { opacity: 0.75 }
   body
     div.container
 
@@ -51,7 +53,7 @@ html
               h1 0
               p Average network latency
           div.span6
-            div.total(data-target='timers.bbc.tviplayer.iplayer.index.request_response_render', data-function='mean', data-unit='ms')
+            div.total(data-target='timers.bbc.tviplayer.iplayer.index.request_response_render', data-function='mean', data-unit='ms', data-threshold='2400')
               div.graph
                 img(width=460, height=50)
               h1 0ms
@@ -62,13 +64,13 @@ html
             h1 Browser performance
         div.row
           div.span6
-            div.parsing(data-target='timers.bbc.tviplayer.iplayer.index.render_time', data-function='mean', data-unit='ms')
+            div.parsing(data-target='timers.bbc.tviplayer.iplayer.index.render_time', data-function='mean', data-unit='ms', data-threshold='1500')
               div.graph
                 img(width=460, height=50)
               h1 0ms
               p Average page render time
           div.span6
-            div.uniques(data-target='timers.bbc.tviplayer.iplayer.index.dom_processing_time', data-function='mean', data-unit='ms')
+            div.uniques(data-target='timers.bbc.tviplayer.iplayer.index.dom_processing_time', data-function='mean', data-unit='ms', data-threshold='1200')
               div.graph
                 img(width=460, height=50)
               h1 0
@@ -79,7 +81,7 @@ html
             h1 PHP performance
         div.row
           div.span4
-            div.generation(data-target='timers.bbc.tviplayer.iplayer.index.page_assembly_time', data-function='mean', data-unit='ms')
+            div.generation(data-target='timers.bbc.tviplayer.iplayer.index.page_assembly_time', data-function='mean', data-unit='ms', data-threshold='3000')
               div.graph
                 img(width=300, height=50)
               h1 0ms

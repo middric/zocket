@@ -15,15 +15,23 @@ socket.on('all', function (data) {
             target = $(this).data('target'),
             func = $(this).data('function'),
             unit = $(this).data('unit') || '',
+            threshold = $(this).data('threshold') || Number.POSITIVE_INFINITY,
             cur = false,
-            i = 0, sum = 0;
+            warning = false,
+            val = 0, i = 0, sum = 0;
 
         if (cur = isset(data, target)) {
             if (cur.length && func != 'count') {
                 for(i; i < cur.length; i++){
                     sum += cur[i];
                 }
-                h.text(Math.round(sum / cur.length) + unit);
+                val = Math.round(sum / cur.length);
+                warning = (val > threshold);
+                h.removeClass('warning');
+                if (warning) {
+                    h.addClass('warning');
+                }
+                h.text(val + unit);
             } else if (cur.length) {
                 h.text(cur.length + unit);
             } else {
@@ -34,7 +42,12 @@ socket.on('all', function (data) {
                 h.text(Object.keys(cur.store).length + unit);
             }
         }
-        img.removeAttr('src').attr('src', 'http://198.199.67.216:8080/render/?target=stats.' + target + '.' + func + '&from=-10minutes&graphOnly=1&lineMode=connected&lineWidth=2&width=' + img.width() + '&height=50&template=zockets');
+        if (warning) {
+            img.removeAttr('src').attr('src', 'http://198.199.67.216:8080/render/?target=stats.' + target + '.' + func + '&from=-10minutes&graphOnly=1&lineMode=connected&lineWidth=2&width=' + img.width() + '&height=50&template=zockets_warning');
+        } else {
+            img.removeAttr('src').attr('src', 'http://198.199.67.216:8080/render/?target=stats.' + target + '.' + func + '&from=-10minutes&graphOnly=1&lineMode=connected&lineWidth=2&width=' + img.width() + '&height=50&template=zockets');
+
+        }
     });
 });
 
