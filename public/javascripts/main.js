@@ -17,12 +17,15 @@ socket.on('all', function (data) {
             unit = $(this).data('unit') || '',
             cur = false,
             i = 0, sum = 0;
+
         if (cur = isset(data, target)) {
-            if (cur.length) {
+            if (cur.length && func != 'count') {
                 for(i; i < cur.length; i++){
                     sum += cur[i];
                 }
                 h.text(Math.round(sum / cur.length) + unit);
+            } else if (cur.length) {
+                h.text(cur.length + unit);
             } else {
                 h.text("0" + unit);
             }
