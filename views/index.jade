@@ -87,15 +87,17 @@ html
               h1 0ms
               p Average page generation time
           div.span4
-            div.component-average
+            div.component-average(data-target='timers.bbc.tviplayer.footer.component_assembly_time', data-function='mean', data-unit='ms', data-threshold='1000')
+              div.graph
+                img(width=300, height=50)
               h1 0ms
               p Average page component time
-              div.graph
           div.span4
-            div.component-slowest
+            div.component-slowest(data-target='timers.bbc.tviplayer.rss.component_assembly_time', data-function='mean', data-unit='ms', data-threshold='1000')
+              div.graph
+                img(width=300, height=50)
               h1 0ms
               p Slowest page component time
-              div.graph
 
         div.row.header
           div.span12
