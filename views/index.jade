@@ -105,13 +105,19 @@ html
         div.row
           div.span4
             div.warnings
+              div.graph(style='width: 300px; height: 50px')
+                img(width=300, height=50)
               h1 0
               p Number of warnings
           div.span4
-            div.errors
+            div.errors(data-target='bbc.tviplayer.iplayer.index', data-function='500_error', data-unit='', data-threshold='1')
+              div.graph
+                img(width=300, height=50)
               h1 0
               p Number of errors
           div.span4
             div.not-found
+              div.graph(style='width: 300px; height: 50px')
+                img(width=300, height=50)
               h1 0
               p Number of 404's

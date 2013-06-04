@@ -21,7 +21,6 @@ socket.on('all', function (data) {
             val = 0, i = 0, sum = 0;
 
         h.removeClass('warning');
-
         if (cur = isset(data, target)) {
             if (cur.length && func != 'count') {
                 for(i; i < cur.length; i++){
